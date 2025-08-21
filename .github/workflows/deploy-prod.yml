@@ -27,8 +27,8 @@ jobs:
 
       - name: S3 기존 파일들 삭제 후 새로 업로드
         run: |
-          aws s3 rm --recursive s3://hyejungssecondbucket 
-          aws s3 cp ./dist s3://hyejungssecondbucket --recursive
+          aws s3 rm --recursive s3://prod-hyejungssecondbucket 
+          aws s3 cp ./dist s3://prod-hyejungssecondbucket --recursive
 
       - name: CloudFront 캐시 무효화
         run: aws cloudfront create-invalidation --distribution-id EMRMH5GXK7L7C --paths "/*"
